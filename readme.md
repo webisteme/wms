@@ -51,9 +51,9 @@ Note: trailing slashes are required.
 
 ### Fulfillment API
 
-The application's core service is the fulfilment API, which is responsible for providing instuctions on how to fulfill an order based on the warehouse storage state. For a list of order lines, an ordered list of picks is returned, where each pick references a quantity and storage ID. The storages used are ordered based on stock, with the storages with the least stock used first. An order for an SKU may therefore span multiple storages.
+The application's core service is the fulfillment API, which is responsible for providing instuctions on how to fulfill an order based on the warehouse storage state. For a list of order lines, an ordered list of picks is returned, where each pick references a quantity and storage ID. The storages used are ordered based on stock, with the storages with the least stock used first. An order for an SKU may therefore span multiple storages.
 
-The fulfilment API is available at
+The fulfillment API is available at
 
 - /api/fulfillment/
 
@@ -70,5 +70,5 @@ Search is case-insensitive and ASCII characters will match with their non-ASCII 
 ## Ideas for improvement
 
 - Implement soft delete by overriding DRF's delete methods
-- Make CRUD API and fulfilment interfaces more consistent
+- Make CRUD API and fulfillment interfaces more consistent
 - Return more granular error code and message when find_picks() fails
