@@ -51,7 +51,7 @@ Note: trailing slashes are required.
 
 ### Fulfillment API
 
-The application's core service is provided by the fulfillment api, which is responsible for prodiving instuctions on how to fulfill an order based on the warehouse storage state. For a list of order lines, an ordered list of picks is returned, where each pick references a quantity and storage ID. The storages used are ordered based on stock, with the storages with the least stock used first. An order for an SKU may therefore span multiple storages.
+The application's core service is the fulfillment api, which is responsible for providing instuctions on how to fulfill an order based on the warehouse storage state. For a list of order lines, an ordered list of picks is returned, where each pick references a quantity and storage ID. The storages used are ordered based on stock, with the storages with the least stock used first. An order for an SKU may therefore span multiple storages.
 
 The fulfillment API is available at
 
@@ -63,12 +63,12 @@ Note: trailing slashes are required.
 
 ### Order Search API
 
-It's also possible to search for orders by `customer_name` at the `/api/order/` endpoint. The following search syntax is supported: `/api/order/?q=query` where `query` is the search term to match against the order `customer name`.
+It's also possible to search for orders by `customer_name` at the `/api/order/` endpoint. The following search syntax is supported: `/api/order/?q=query` where `query` is the search term to match against the order `customer_name`.
 
 Search is case-insensitive and ASCII characters will match with their non-ASCII equivalents (e.g. you can search 'Muller' to find 'Müller') but not the other way round (e.g. searching for 'Jönes' will not return 'Jones').
 
 ## Ideas for improvement
 
-- Implement soft delete by overriding DRF
-- Make DRF API and /fulfillment/ interfaces more consistent 
-- Return more granular error code/message when find_picks() fails
+- Implement soft delete by overriding DRF's delete methods
+- Make CRUD API and fulfillment interfaces more consistent 
+- Return more granular error code and message when find_picks() fails
