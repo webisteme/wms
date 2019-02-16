@@ -38,14 +38,14 @@
 
 ### Models API
 
-The application provides a public REST API for managing orders, order lines, SKUs and storage. No authorization is required. Four main API endpoints are provided for the models (see `wms/models.py` for model defintiions):
+The application provides a public REST API for managing orders, order lines, SKUs and storage. No authorization is required. Four main API endpoints are provided for the models (see `wms/api/models.py` for model defintiions):
 
 - /api/order/
 - /api/orderline/
 - /api/sku/
 - /api/storage/
 
-Each endpoint accepts the standard CRUD operations via HTTP (POST, GET, PUT, DELETE). Refer to `wms/tests.py` for example requests of every operation at each endpoint.
+Each endpoint accepts the standard CRUD operations via HTTP (POST, GET, PUT, DELETE). Refer to `wms/api/tests.py` for example requests of every operation at each endpoint.
 
 Note: trailing slashes are required.
 
