@@ -491,7 +491,7 @@ class FulfillmentValidationTestCase(APITestCase):
         content = json.loads(response.content)
         self.assertEqual(content['error']['code'], 10)
         self.assertEqual(
-            response.status_code, status.HTTP_422_UNPROCESSABLE_ENTITY)
+            response.status_code, status.HTTP_400_BAD_REQUEST)
 
         sku = SKU(id=1, product_name="Test product 123")
         sku.save()

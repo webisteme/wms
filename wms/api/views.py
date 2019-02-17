@@ -67,10 +67,8 @@ class OrderLineViewSet(viewsets.ModelViewSet):
 
 def fulfil_order(request):
     """
-    API endpoint returns instruction for fulfilling an order.
-
-    POST:
-    For a given list or order lines, return an ordered list of picks.
+    API endpoint returns instruction for fulfilling an order
+    as an ordered list of picks.
     """
     try:
         # validate request method
@@ -142,7 +140,7 @@ def fulfil_order(request):
             try:
                 sku = SKU.objects.get(id=sku_id)
             except SKU.DoesNotExist:
-                return error_response(422, 10, 
+                return error_response(400, 10, 
                     "Referenced SKU with id %s does not exist" % sku_id)
     except Exception as e:
         return error_response(500, 98, "Internal server error: %s" % e)
