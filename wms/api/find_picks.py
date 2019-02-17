@@ -10,7 +10,7 @@ def find_picks(order_lines):
     for r in order_lines:
         storages = Storage.objects.filter(
             sku__id=r['sku'], stock__gt=0).order_by('stock')
-        remaining_quantity = r['quantity']
+        remaining_quantity = int(r['quantity'])
         for s in storages:
             if s.stock >= remaining_quantity:
                 picks.append({'id': s.id, 'quantity': remaining_quantity})
