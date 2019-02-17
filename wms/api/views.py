@@ -2,6 +2,7 @@ from django.http import JsonResponse
 
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
+from django.views.decorators.csrf import csrf_exempt
 import json
 
 from .models import SKU, Storage, Order, OrderLine
@@ -65,6 +66,7 @@ class OrderLineViewSet(viewsets.ModelViewSet):
 
 # Fulfillment
 
+@csrf_exempt
 def fulfil_order(request):
     """
     API endpoint returns instruction for fulfilling an order
